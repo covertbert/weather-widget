@@ -1,0 +1,10 @@
+@import "../../assets/css/variables.css";
+
+.main {
+  background-color: var(--main-bg-color);
+}
+
+.main__title {
+  color: red;
+  font-family: "Arial";
+}

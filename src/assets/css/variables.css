@@ -1,0 +1,5 @@
+@custom-media --viewport-medium (width <= 50rem);
+
+:root {
+    --main-bg-color: blue;
+}
