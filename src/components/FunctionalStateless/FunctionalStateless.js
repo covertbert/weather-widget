@@ -1,16 +1,15 @@
 /* @flow */
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './FunctionalStateless.css'
-import testImage from '../../assets/img/test.jpg'
 
-type Props = {
-  title: string
-}
-
-const FunctionalStateless = (props: Props) =>
+const FunctionalStateless = ({title}) =>
   <div className={styles['main']}>
-    <h1 className={styles['main__title']}>{props.title}</h1>
-    <img src={testImage} />
+    <h1 className={styles['main__title']}>{title}</h1>
   </div>
+
+FunctionalStateless.propTypes = {
+  title: PropTypes.string.isRequired
+}
 
 export default FunctionalStateless
