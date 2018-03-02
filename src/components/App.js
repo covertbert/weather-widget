@@ -1,14 +1,11 @@
-/* @flow */
 import React from 'react'
-import FunctionalStateless from './FunctionalStateless/FunctionalStateless'
-import Classical from './Classical/Classical'
+import Main from './Main/Main'
 
 const App = () => {
   return (
-    <div>
-      <FunctionalStateless title={'Test'} />
-      <Classical />
-    </div>
+    <main>
+      <Main />
+    </main>
   )
 }
 

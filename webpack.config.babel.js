@@ -1,5 +1,4 @@
 import HtmlWebPackPlugin from 'html-webpack-plugin'
-import FlowWebpackPlugin from 'flow-webpack-plugin'
 
 module.exports = {
   devServer: {
@@ -54,7 +53,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new FlowWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html'
