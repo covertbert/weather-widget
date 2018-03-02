@@ -9,6 +9,7 @@ class Main extends React.Component {
     this.state = {
       location: null,
       locationIsLoaded: false,
+      weatherDataIsLoaded: false,
       errors: []
     }
   }
@@ -25,7 +26,7 @@ class Main extends React.Component {
     })
   }
 
-  getLocationData (coordinates) {
+  getWeatherData (coordinates) {
     const longitude = coordinates[0]
     const latitude = coordinates[1]
     const apiQuery = `http://localhost:3000/weather/json?lat=${latitude}&lon=${longitude}`
@@ -42,8 +43,8 @@ class Main extends React.Component {
   componentDidMount () {
     this.getLocation().then((res) => {
       this.setState({location: res, locationIsLoaded: true})
-      this.getLocationData(this.state.location).then((weatherData) => {
-        console.log(weatherData)
+      this.getWeatherData(this.state.location).then((res) => {
+        this.setState({weatherData: res, weatherDataIsLoaded: true})
       }).catch((err) => {
         this.setState({errors: this.state.errors.concat(err)})
       })
@@ -55,8 +56,9 @@ class Main extends React.Component {
   render () {
     return (
       <div>
-        <h1>{this.state.location}</h1>
-        {this.state.locationIsLoaded && (<p>I'm loaded</p>)}
+        <h1>Stuff</h1>
+        {this.state.locationIsLoaded && (<p>{this.state.location}</p>)}
+        {this.state.weatherDataIsLoaded && (<p>{JSON.stringify(this.state.weatherData)}</p>)}
       </div>
     )
   }
