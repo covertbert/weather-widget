@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+
 // import styles from './Main.css'
 
 class Main extends React.Component {
@@ -27,9 +28,23 @@ class Main extends React.Component {
   }
 
   getWeatherData (coordinates) {
-    const longitude = coordinates[0]
-    const latitude = coordinates[1]
+    const latitude = coordinates[0]
+    const longitude = coordinates[1]
     const apiQuery = `http://localhost:3000/weather/json?lat=${latitude}&lon=${longitude}`
+
+    return new Promise((resolve, reject) => {
+      axios.get(apiQuery).then((response) => {
+        resolve(response)
+      }).catch((error) => {
+        reject(error)
+      })
+    })
+  }
+
+  getGooglePlaceImage (coordinates) {
+    const latitude = coordinates[0]
+    const longitude = coordinates[1]
+    const apiQuery = `http://localhost:3000/location_data/json?lat=${latitude}&lon=${longitude}`
 
     return new Promise((resolve, reject) => {
       axios.get(apiQuery).then((response) => {
@@ -43,6 +58,13 @@ class Main extends React.Component {
   componentDidMount () {
     this.getLocation().then((res) => {
       this.setState({location: res, locationIsLoaded: true})
+
+      this.getGooglePlaceImage(this.state.location).then((res) => {
+        console.log(res)
+      }).catch((err) => {
+        this.setState({errors: this.state.errors.concat(err)})
+      })
+
       this.getWeatherData(this.state.location).then((res) => {
         this.setState({weatherData: res, weatherDataIsLoaded: true})
       }).catch((err) => {
