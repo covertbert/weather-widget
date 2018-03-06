@@ -10,7 +10,10 @@ class Main extends React.Component {
     this.state = {
       location: null,
       locationIsLoaded: false,
+      weatherData: null,
       weatherDataIsLoaded: false,
+      ImageSrc: null,
+      ImageSrcIsLoaded: false,
       errors: []
     }
   }
@@ -69,6 +72,8 @@ class Main extends React.Component {
         this.getGooglePlaceImage(this.state.location)
           .then(res => {
             console.log(res)
+
+            this.setState({ ImageSrc: res.data, ImageSrcIsLoaded: true })
           })
           .catch(err => {
             this.setState({ errors: this.state.errors.concat(err) })
@@ -95,6 +100,7 @@ class Main extends React.Component {
         {this.state.weatherDataIsLoaded && (
           <p>{JSON.stringify(this.state.weatherData)}</p>
         )}
+        {this.state.ImageSrcIsLoaded && <img src={this.ImageSrc} />}
       </div>
     )
   }
