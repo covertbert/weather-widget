@@ -9,24 +9,21 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader',
-          'eslint-loader'
-        ]
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
-            options: {minimize: true}
+            options: { minimize: true }
           }
         ]
       },
       {
         test: /\.css$/,
         use: [
-          {loader: 'style-loader'},
+          { loader: 'style-loader' },
           {
             loader: 'css-loader',
             options: {
@@ -35,7 +32,7 @@ module.exports = {
               localIdentName: '[local]___[hash:base64:5]'
             }
           },
-          {loader: 'postcss-loader'}
+          { loader: 'postcss-loader' }
         ]
       },
       {
