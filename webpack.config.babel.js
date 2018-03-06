@@ -21,7 +21,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.pcss$/,
         use: [
           { loader: 'style-loader' },
           {
