@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-// import styles from './Main.css'
+import styles from './Main.pcss'
 
 class Main extends React.Component {
   constructor () {
@@ -71,7 +71,7 @@ class Main extends React.Component {
 
         this.getGooglePlaceImage(this.state.location)
           .then(res => {
-            console.log(res)
+            console.log(res.data)
 
             this.setState({ ImageSrc: res.data, ImageSrcIsLoaded: true })
           })
@@ -94,14 +94,10 @@ class Main extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>Stuff</h1>
-        {this.state.locationIsLoaded && <p>{this.state.location}</p>}
-        {this.state.weatherDataIsLoaded && (
-          <p>{JSON.stringify(this.state.weatherData)}</p>
-        )}
-        {this.state.ImageSrcIsLoaded && <img src={this.ImageSrc} />}
-      </div>
+      <div
+        className={styles['page-body']}
+        style={{ backgroundImage: `url(${this.state.ImageSrc})` }}
+      />
     )
   }
 }
