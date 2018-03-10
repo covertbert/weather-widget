@@ -3,6 +3,8 @@ import axios from 'axios'
 
 import styles from './Main.pcss'
 
+import FiveDayForecast from '../FiveDayForecast/FiveDayForecast'
+
 class Main extends React.Component {
   constructor () {
     super()
@@ -71,8 +73,6 @@ class Main extends React.Component {
 
         this.getGooglePlaceImage(this.state.location)
           .then(res => {
-            console.log(res.data)
-
             this.setState({ ImageSrc: res.data, ImageSrcIsLoaded: true })
           })
           .catch(err => {
@@ -97,7 +97,13 @@ class Main extends React.Component {
       <div
         className={styles['page-body']}
         style={{ backgroundImage: `url(${this.state.ImageSrc})` }}
-      />
+      >
+        {this.state.weatherDataIsLoaded && (
+          <FiveDayForecast
+            weatherData={this.state.weatherData.data.daily.data}
+          />
+        )}
+      </div>
     )
   }
 }
