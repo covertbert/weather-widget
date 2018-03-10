@@ -4,6 +4,7 @@ import axios from 'axios'
 import styles from './Main.pcss'
 
 import FiveDayForecast from '../FiveDayForecast/FiveDayForecast'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 class Main extends React.Component {
   constructor () {
@@ -101,6 +102,8 @@ class Main extends React.Component {
             weatherData={this.state.weatherData.data.daily.data}
           />
         )}
+        {/* {!this.state.ImageSrcIsLoaded && <LoadingSpinner />} */}
+        <LoadingSpinner />
       </div>
     )
   }
