@@ -94,10 +94,8 @@ class Main extends React.Component {
 
   render () {
     return (
-      <div
-        className={styles['page-body']}
-        style={{ backgroundImage: `url(${this.state.ImageSrc})` }}
-      >
+      <div className={styles['page-body']}>
+        <img src={this.state.ImageSrc} className={styles['page-body__image']} />
         {this.state.weatherDataIsLoaded && (
           <FiveDayForecast
             weatherData={this.state.weatherData.data.daily.data}

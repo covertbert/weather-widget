@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import styles from './FiveDayForecast.pcss'
+import styles from './FiveDayForecast.pcss'
 
 class FiveDayForecast extends React.Component {
   constructor () {
@@ -12,7 +12,7 @@ class FiveDayForecast extends React.Component {
     console.log(this.props.weatherData)
   }
   render () {
-    return <div>Hello</div>
+    return <section className={styles['five-day-forecast']}>Hello</section>
   }
 }
 
