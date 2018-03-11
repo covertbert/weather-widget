@@ -1,10 +1,9 @@
-import React from 'react'
-import axios from 'axios'
-
-import styles from './Main.pcss'
-
 import FiveDayForecast from '../FiveDayForecast/FiveDayForecast'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import React from 'react'
+
+import axios from 'axios'
+import styles from './Main.pcss'
 
 class Main extends React.Component {
   constructor () {

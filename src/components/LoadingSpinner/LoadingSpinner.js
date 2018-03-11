@@ -1,5 +1,6 @@
-import React from 'react'
 import { FingerprintSpinner } from 'react-epic-spinners'
+import React from 'react'
+
 import styles from './LoadingSpinner.pcss'
 
 const LoadingSpinner = props => (

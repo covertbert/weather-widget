@@ -2,6 +2,14 @@
   "parser": "babel-eslint",
   "extends": ["standard", "standard-react"],
   "rules": {
-    "lines-between-class-members": ["error", "always"]
+    "lines-between-class-members": ["error", "always"],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ]
   }
 }

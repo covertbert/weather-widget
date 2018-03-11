@@ -1,9 +1,8 @@
+import FiveDayForecastItem from './FiveDayForecastItem'
+import PropTypes from 'prop-types'
 import React from 'react'
 
-import PropTypes from 'prop-types'
 import styles from './FiveDayForecast.pcss'
-
-import FiveDayForecastItem from './FiveDayForecastItem'
 
 class FiveDayForecast extends React.Component {
   constructor () {

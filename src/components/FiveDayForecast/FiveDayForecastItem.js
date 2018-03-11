@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 import ReactAnimatedWeather from 'react-animated-weather'
 
 import styles from './FiveDayForecast.pcss'
