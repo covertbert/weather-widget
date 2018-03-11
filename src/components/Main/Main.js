@@ -83,6 +83,12 @@ class Main extends React.Component {
     })
   }
 
+  nextFiveDaysData () {
+    const weatherData = this.state.weatherData.data.daily.data
+    const excludedIndices = [0, 6, 7, 8]
+    return weatherData.filter((item, index) => !excludedIndices.includes(index))
+  }
+
   componentDidMount () {
     this.getLocation()
       .then(res => {
@@ -117,9 +123,7 @@ class Main extends React.Component {
       <div className={styles['page-body']}>
         <img src={this.state.ImageSrc} className={styles['page-body__image']} />
         {this.state.weatherDataIsLoaded && (
-          <FiveDayForecast
-            weatherData={this.state.weatherData.data.daily.data}
-          />
+          <FiveDayForecast weatherData={this.nextFiveDaysData()} />
         )}
         {!this.state.ImageSrcIsLoaded && <LoadingSpinner />}
       </div>
