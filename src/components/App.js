@@ -1,10 +1,11 @@
-import React from 'react'
 import Main from './Main/Main'
-import '../assets/css/base.pcss'
+import React from 'react'
+
+import styles from '../assets/css/base.pcss'
 
 const App = () => {
   return (
-    <main>
+    <main className={styles['app-body']}>
       <Main />
     </main>
   )
