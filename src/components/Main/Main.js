@@ -25,22 +25,23 @@ class Main extends React.Component {
     return JSON.parse(window.sessionStorage.getItem('currentLocation'))
   }
 
-  async newLocation () {
-    let location
-    await navigator.geolocation.getCurrentPosition(position => {
-      location = [position.coords.latitude, position.coords.longitude]
-      window.sessionStorage.setItem('currentLocation', JSON.stringify(location))
-    })
-    return location
-  }
-
   getLocation () {
     return new Promise((resolve, reject) => {
       if (this.savedLocation()) {
         resolve(this.savedLocation())
       } else {
         try {
-          resolve(this.newLocation)
+          navigator.geolocation.getCurrentPosition(position => {
+            const location = [
+              position.coords.latitude,
+              position.coords.longitude
+            ]
+            window.sessionStorage.setItem(
+              'currentLocation',
+              JSON.stringify(location)
+            )
+            resolve(location)
+          })
         } catch (err) {
           reject(err)
         }
