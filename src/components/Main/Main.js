@@ -21,14 +21,29 @@ class Main extends React.Component {
     }
   }
 
+  savedLocation () {
+    return JSON.parse(window.sessionStorage.getItem('currentLocation'))
+  }
+
+  async newLocation () {
+    let location
+    await navigator.geolocation.getCurrentPosition(position => {
+      location = [position.coords.latitude, position.coords.longitude]
+      window.sessionStorage.setItem('currentLocation', JSON.stringify(location))
+    })
+    return location
+  }
+
   getLocation () {
     return new Promise((resolve, reject) => {
-      try {
-        navigator.geolocation.getCurrentPosition(position => {
-          resolve([position.coords.latitude, position.coords.longitude])
-        })
-      } catch (err) {
-        reject(err)
+      if (this.savedLocation()) {
+        resolve(this.savedLocation())
+      } else {
+        try {
+          resolve(this.newLocation)
+        } catch (err) {
+          reject(err)
+        }
       }
     })
   }
@@ -74,7 +89,10 @@ class Main extends React.Component {
 
         this.getGooglePlaceImage(this.state.location)
           .then(res => {
-            this.setState({ ImageSrc: res.data, ImageSrcIsLoaded: true })
+            this.setState({ ImageSrc: res.data })
+            setTimeout(() => {
+              this.setState({ ImageSrcIsLoaded: true })
+            }, 300)
           })
           .catch(err => {
             this.setState({ errors: this.state.errors.concat(err) })

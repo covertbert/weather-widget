@@ -4,6 +4,7 @@ module.exports = {
   devServer: {
     overlay: true
   },
+  entry: ['babel-polyfill', './src/index.js'],
   module: {
     rules: [
       {
