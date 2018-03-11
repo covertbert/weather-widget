@@ -12,7 +12,15 @@ class FiveDayForecast extends React.Component {
     console.log(this.props.weatherData)
   }
   render () {
-    return <section className={styles['five-day-forecast']}>Hello</section>
+    return (
+      <section className={styles['five-day-forecast']}>
+        {this.props.weatherData.map(item => (
+          <div key={item.time} className={styles['forecast-item']}>
+            {item.summary}
+          </div>
+        ))}
+      </section>
+    )
   }
 }
 
