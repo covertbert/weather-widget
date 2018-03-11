@@ -24,7 +24,10 @@ class FiveDayForecastItem extends React.Component {
   }
 
   getTemperatureRange () {
-    return 12
+    const tempHigh = this.props.itemWeatherData.temperatureHigh
+    const tempLow = this.props.itemWeatherData.temperatureLow
+
+    return `${Math.floor(tempLow)}° - ${Math.ceil(tempHigh)}°`
   }
 
   componentDidMount () {
