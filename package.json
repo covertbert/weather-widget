@@ -44,6 +44,7 @@
     "postcss-loader": "^2.1.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-animated-weather": "^1.0.3",
     "react-dom": "^16.2.0",
     "react-epic-spinners": "^0.2.1",
     "style-loader": "^0.20.2",

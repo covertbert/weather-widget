@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './FiveDayForecast.pcss'
 
+import FiveDayForecastItem from './FiveDayForecastItem'
+
 class FiveDayForecast extends React.Component {
   constructor () {
     super()
@@ -15,9 +17,7 @@ class FiveDayForecast extends React.Component {
     return (
       <section className={styles['five-day-forecast']}>
         {this.props.weatherData.map(item => (
-          <div key={item.time} className={styles['forecast-item']}>
-            {item.summary}
-          </div>
+          <FiveDayForecastItem key={item.time} itemWeatherData={item} />
         ))}
       </section>
     )

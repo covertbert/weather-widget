@@ -52,7 +52,7 @@ class Main extends React.Component {
   getWeatherData (coordinates) {
     const latitude = coordinates[0]
     const longitude = coordinates[1]
-    const apiQuery = `http://localhost:3000/weather/json?lat=${latitude}&lon=${longitude}`
+    const apiQuery = `http://localhost:3000/weather/json?lat=${latitude}&lon=${longitude}&units=auto`
 
     return new Promise((resolve, reject) => {
       axios
