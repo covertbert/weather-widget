@@ -11,9 +11,11 @@ class FiveDayForecast extends React.Component {
 
     this.state = {}
   }
+
   componentDidMount () {
     console.log(this.props.weatherData)
   }
+
   render () {
     return (
       <section className={styles['five-day-forecast']}>

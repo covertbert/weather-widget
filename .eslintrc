@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "standard",
-    "standard-react"
-  ]
+  "extends": ["standard", "standard-react"],
+  "rules": {
+    "lines-between-class-members": ["error", "always"]
+  }
 }

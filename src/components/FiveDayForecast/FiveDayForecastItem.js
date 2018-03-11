@@ -10,22 +10,42 @@ class FiveDayForecastItem extends React.Component {
 
     this.state = {}
   }
-  formatForIcons (itemString) {
+
+  formatForIcons () {
+    const itemString = this.props.itemWeatherData.icon
     let formattedString = itemString.toUpperCase()
     return formattedString.replace(/-/g, '_')
   }
+
+  formatDayFromTimestamp () {
+    const timestamp = this.props.itemWeatherData.time
+    const date = new Date(parseInt(timestamp * 1000))
+    return date.toLocaleString(window.navigator.language, { weekday: 'short' })
+  }
+
+  getTemperatureRange () {
+    return 12
+  }
+
   componentDidMount () {
     console.log(this.props.itemWeatherData)
   }
+
   render () {
     return (
       <div className={styles['forecast-weather-item']}>
+        <span className={styles['forecast-weather-item__day']}>
+          {this.formatDayFromTimestamp()}
+        </span>
         <ReactAnimatedWeather
           className={styles['forecast-weather-item__icon']}
-          icon={this.formatForIcons(this.props.itemWeatherData.icon)}
+          icon={this.formatForIcons()}
           color={'gray'}
           size={50}
         />
+        <span className={styles['forecast-weather-item__temp']}>
+          {this.getTemperatureRange()}
+        </span>
       </div>
     )
   }
