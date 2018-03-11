@@ -45,6 +45,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-epic-spinners": "^0.2.1",
     "style-loader": "^0.20.2",
     "stylelint": "^9.1.1",
     "stylelint-config-rational-order": "0.0.2",

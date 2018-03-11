@@ -102,8 +102,7 @@ class Main extends React.Component {
             weatherData={this.state.weatherData.data.daily.data}
           />
         )}
-        {/* {!this.state.ImageSrcIsLoaded && <LoadingSpinner />} */}
-        <LoadingSpinner />
+        {!this.state.ImageSrcIsLoaded && <LoadingSpinner />}
       </div>
     )
   }
