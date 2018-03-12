@@ -1,3 +1,5 @@
+@import "../../assets/css/variables.pcss";
+
 .five-day-forecast {
   position: absolute;
   bottom: 0;
@@ -5,5 +7,25 @@
   display: flex;
   width: 100%;
   height: 150px;
-  background-color: #eaf3f6;
+  background-color: var(--forecast-background);
+}
+
+.forecast-weather-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecast-weather-item__day {
+  margin-bottom: 8px;
+  color: var(--forecast-foreground);
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.forecast-weather-item__temp {
+  margin-top: 8px;
+  color: var(--forecast-foreground);
+  font-size: 20px;
 }

@@ -43,8 +43,8 @@ class FiveDayForecastItem extends React.Component {
         <ReactAnimatedWeather
           className={styles['forecast-weather-item__icon']}
           icon={this.formatForIcons()}
-          color={'gray'}
-          size={50}
+          color={'#94a0a5'}
+          size={45}
         />
         <span className={styles['forecast-weather-item__temp']}>
           {this.getTemperatureRange()}

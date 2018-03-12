@@ -98,7 +98,7 @@ class Main extends React.Component {
             this.setState({ ImageSrc: res.data })
             setTimeout(() => {
               this.setState({ ImageSrcIsLoaded: true })
-            }, 300)
+            }, 1000)
           })
           .catch(err => {
             this.setState({ errors: this.state.errors.concat(err) })
