@@ -1,6 +1,7 @@
 import FiveDayForecast from '../FiveDayForecast/FiveDayForecast'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import React from 'react'
+import WeatherToday from '../WeatherToday/WeatherToday'
 
 import axios from 'axios'
 import styles from './Main.pcss'
@@ -16,6 +17,7 @@ class Main extends React.Component {
       weatherDataIsLoaded: false,
       ImageSrc: null,
       ImageSrcIsLoaded: false,
+      currentLocation: null,
       errors: []
     }
   }
@@ -95,7 +97,9 @@ class Main extends React.Component {
 
         this.getGooglePlaceImage(this.state.location)
           .then(res => {
-            this.setState({ ImageSrc: res.data })
+            this.setState({ ImageSrc: res.data.imageQuery })
+            this.setState({ currentLocation: res.data.location })
+
             setTimeout(() => {
               this.setState({ ImageSrcIsLoaded: true })
             }, 1000)
@@ -121,6 +125,12 @@ class Main extends React.Component {
     return (
       <div className={styles['page-body']}>
         <img src={this.state.ImageSrc} className={styles['page-body__image']} />
+        {this.state.weatherDataIsLoaded && (
+          <WeatherToday
+            weatherData={this.state.weatherData.data.currently}
+            currentLocation={this.state.currentLocation}
+          />
+        )}
         {this.state.weatherDataIsLoaded && (
           <FiveDayForecast weatherData={this.nextFiveDaysData()} />
         )}

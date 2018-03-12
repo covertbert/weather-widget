@@ -30,10 +30,6 @@ class FiveDayForecastItem extends React.Component {
     return `${Math.floor(tempLow)}° - ${Math.ceil(tempHigh)}°`
   }
 
-  componentDidMount () {
-    console.log(this.props.itemWeatherData)
-  }
-
   render () {
     return (
       <div className={styles['forecast-weather-item']}>
