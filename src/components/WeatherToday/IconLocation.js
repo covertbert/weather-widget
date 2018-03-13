@@ -7,10 +7,12 @@ import styles from './WeatherToday.pcss'
 
 const IconLocation = ({ iconString, currentLocation }) => (
   <div className={styles['icon-location']}>
-    <ReactAnimatedWeather icon={iconString} color={'#fff'} size={60} />
-    <div className={styles['icon-location__location']}>
-      <img src={locationIcon} /> >
-      <span>{currentLocation} </span>
+    <ReactAnimatedWeather icon={iconString} color={'#fff'} size={220} />
+    <div className={styles['icon-location__location-container']}>
+      <img className={styles['icon-location__icon']} src={locationIcon} />
+      <span className={styles['icon-location__location']}>
+        {currentLocation}
+      </span>
     </div>
   </div>
 )
