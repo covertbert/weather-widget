@@ -18,11 +18,6 @@ class WeatherToday extends React.Component {
     return formattedString.replace(/-/g, '_')
   }
 
-  componentDidMount () {
-    console.log(this.props.weatherData)
-    console.log(this.props.currentLocation)
-  }
-
   render () {
     return (
       <section className={styles['weather-today']}>
