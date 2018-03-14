@@ -53,7 +53,7 @@ class Main extends React.Component {
   getWeatherData (coordinates) {
     const latitude = coordinates[0]
     const longitude = coordinates[1]
-    const apiQuery = `http://localhost:3000/weather/json?lat=${latitude}&lon=${longitude}&units=auto`
+    const apiQuery = `https://dark-sky-endpoint.bertieblackman.co.uk/weather/json?lat=${latitude}&lon=${longitude}&units=auto`
 
     return new Promise((resolve, reject) => {
       axios
@@ -70,7 +70,7 @@ class Main extends React.Component {
   getGooglePlaceImage (coordinates) {
     const latitude = coordinates[0]
     const longitude = coordinates[1]
-    const apiQuery = `http://localhost:3000/location_data/json?lat=${latitude}&lon=${longitude}`
+    const apiQuery = `https://dark-sky-endpoint.bertieblackman.co.uk/location_data/json?lat=${latitude}&lon=${longitude}`
 
     return new Promise((resolve, reject) => {
       axios
