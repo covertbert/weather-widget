@@ -18,6 +18,10 @@ class WeatherToday extends React.Component {
     return formattedString.replace(/-/g, '_')
   }
 
+  roundTemperature () {
+    return Math.round(this.props.weatherData.temperature)
+  }
+
   render () {
     return (
       <section className={styles['weather-today']}>
@@ -25,7 +29,7 @@ class WeatherToday extends React.Component {
           iconString={this.formatForIcons()}
           currentLocation={this.props.currentLocation}
         />
-        <Temperature temperatureToday={this.props.weatherData.temperature} />
+        <Temperature temperatureToday={this.roundTemperature()} />
       </section>
     )
   }
