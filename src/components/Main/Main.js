@@ -16,8 +16,8 @@ class Main extends React.Component {
       locationIsLoaded: false,
       weatherData: null,
       weatherDataIsLoaded: false,
-      ImageSrc: null,
-      ImageSrcIsLoaded: false,
+      imageSrc: null,
+      imageSrcIsLoaded: false,
       currentLocation: null,
       errors: []
     }
@@ -100,11 +100,11 @@ class Main extends React.Component {
 
         this.getGooglePlaceImage(this.state.location)
           .then(res => {
-            this.setState({ ImageSrc: res.data.imageQuery })
+            this.setState({ imageSrc: res.data.imageQuery })
             this.setState({ currentLocation: res.data.location })
 
             setTimeout(() => {
-              this.setState({ ImageSrcIsLoaded: true })
+              this.setState({ imageSrcIsLoaded: true })
             }, 1000)
           })
           .catch(err => {
@@ -127,7 +127,7 @@ class Main extends React.Component {
   render () {
     return (
       <div className={styles['page-body']}>
-        <img src={this.state.ImageSrc} className={styles['page-body__image']} />
+        <img src={this.state.imageSrc} className={styles['page-body__image']} />
         {this.state.weatherDataIsLoaded && (
           <WeatherToday
             weatherData={this.state.weatherData.data.currently}
@@ -137,7 +137,7 @@ class Main extends React.Component {
         {this.state.weatherDataIsLoaded && (
           <FiveDayForecast weatherData={this.nextFiveDaysData()} />
         )}
-        {!this.state.ImageSrcIsLoaded && <LoadingSpinner />}
+        {!this.state.imageSrcIsLoaded && <LoadingSpinner />}
       </div>
     )
   }
