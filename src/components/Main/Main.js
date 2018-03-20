@@ -4,6 +4,7 @@ import React from 'react'
 import WeatherToday from '../WeatherToday/WeatherToday'
 
 import axios from 'axios'
+import config from '../../../config'
 import styles from './Main.pcss'
 
 class Main extends React.Component {
@@ -53,7 +54,8 @@ class Main extends React.Component {
   getWeatherData (coordinates) {
     const latitude = coordinates[0]
     const longitude = coordinates[1]
-    const apiQuery = `https://dark-sky-endpoint.bertieblackman.co.uk/weather/json?lat=${latitude}&lon=${longitude}&units=auto`
+    const coordinateQuery = `lat=${latitude}&lon=${longitude}`
+    const apiQuery = `${config.API_URL}/weather/json?${coordinateQuery}`
 
     return new Promise((resolve, reject) => {
       axios
@@ -70,7 +72,8 @@ class Main extends React.Component {
   getGooglePlaceImage (coordinates) {
     const latitude = coordinates[0]
     const longitude = coordinates[1]
-    const apiQuery = `https://dark-sky-endpoint.bertieblackman.co.uk/location_data/json?lat=${latitude}&lon=${longitude}`
+    const coordinateQuery = `lat=${latitude}&lon=${longitude}`
+    const apiQuery = `${config.API_URL}/location_data/json?${coordinateQuery}`
 
     return new Promise((resolve, reject) => {
       axios
