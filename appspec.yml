@@ -1,0 +1,5 @@
+version: 0.0
+os: linux
+files:
+  - source: /dist
+    destination: /home/webadmin/sites/weather-widget.bertieblackman.co.uk/html
