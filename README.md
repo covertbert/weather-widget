@@ -1,0 +1,3 @@
+# Weather Widget
+
+![Build Status](https://codebuild.eu-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiSUtqOFFsbU8zQktuNnNacGREaW5QV3d6eDJtejNPM1lGSWNqakR2NmhtYWc2Q2FsQXM0WlJZbGlTcUZDZ3UrTlNOd2c0TDRMSGhCTmJwNEZodFdJOHprPSIsIml2UGFyYW1ldGVyU3BlYyI6IjY1VHFsdXptYnk0YVBKenUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
